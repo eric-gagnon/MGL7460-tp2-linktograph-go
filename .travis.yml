@@ -2,6 +2,6 @@ language: go
 go:
   - "1.11.1"
 
-script: go test
+script: script: go test ./...
 notifications:
   email: true
