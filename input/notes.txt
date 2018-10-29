@@ -1,0 +1,5 @@
+Cas spéciaux:
+- Liens livres BAnQ (requiert accès)
+- Liens PDF
+- Liens Github
+- ...
