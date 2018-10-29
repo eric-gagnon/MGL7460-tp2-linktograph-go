@@ -20,7 +20,8 @@ Référence à documentation commune dans wiki? Duplication à prévoir avec la 
 *   Installation de Neo4j / ([GrapheneDB](https://www.graphenedb.com/)). (v3.4.7) (Août 2018. latest = 3.4.8, 3.5 en béta)
     *   Note : Mise à jour avec Graphene en "self-service" ([versions](https://docs.graphenedb.com/docs/neo4j-version-upgrades)).
     *   Apoc 3.4.0.3 ([versions](https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases)) (Septembre 2018)
-    
+
+
 *   Installation de Tika 1.19.1 [Versions](https://archive.apache.org/dist/tika/)(October 2018)
     *   Extensions NER (version à retrouver)
 
