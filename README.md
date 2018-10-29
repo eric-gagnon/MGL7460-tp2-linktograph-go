@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/eric-gagnon/MGL7460-tp2-linktograph-go.svg?branch=master)](https://travis-ci.org/eric-gagnon/MGL7460-tp2-linktograph-go)
-[![Coverage Status](https://coveralls.io/repos/github/eric-gagnon/MGL7460-tp2-linktograph-go/badge.svg?branch=master)](https://coveralls.io/github/eric-gagnon/MGL7460-tp2-linktograph-go?branch=master)
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/eric-gagnon/MGL7460-tp2-linktograph-go)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/93056b3d54fae3588072/test_coverage)](https://codeclimate.com/github/eric-gagnon/MGL7460-tp2-linktograph-go/test_coverage)
+[![Build Status](https://travis-ci.org/eric-gagnon/mgl7460-tp2-linktograph-go.svg?branch=master)](https://travis-ci.org/eric-gagnon/mgl7460-tp2-linktograph-go)
+[![Coverage Status](https://coveralls.io/repos/github/eric-gagnon/mgl7460-tp2-linktograph-go/badge.svg?branch=master)](https://coveralls.io/github/eric-gagnon/mgl7460-tp2-linktograph-go?branch=master)
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/eric-gagnon/mgl7460-tp2-linktograph-go)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/93056b3d54fae3588072/test_coverage)](https://codeclimate.com/github/eric-gagnon/mgl7460-tp2-linktograph-go/test_coverage)
 
 # MGL7460-tp2-inktograph-go
 Application pour le TP2 : Typage et maintenabilité. Version avec le langage Go.
