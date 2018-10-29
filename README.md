@@ -15,23 +15,23 @@ Application pour le TP2 : Typage et maintenabilité. Version avec le langage Go.
 
 Référence à documentation commune dans wiki? Duplication à prévoir avec la version Groovy.
 
-*   Installation de GoLang (v1.11.1). [versions](https://golang.org/doc/devel/release.html) (Octobre 2018)
-*   Installation de Neo4j / ([GrapheneDB](https://www.graphenedb.com/)). (v3.4.7) (Août 2018. latest = 3.4.8, 3.5 en béta)
-  *   Note : Mise à jour avec Graphene en "self-service" ([versions](https://docs.graphenedb.com/docs/neo4j-version-upgrades)).
-  *   Apoc 3.4.0.3 ([versions](https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases)) (Septembre 2018)
-*   Installation de Tika 1.19.1 [Versions](https://archive.apache.org/dist/tika/)(October 2018)
-  *   Extensions NER (version à retrouver)
+* Installation de GoLang (v1.11.1). [versions](https://golang.org/doc/devel/release.html) (Octobre 2018)
+* Installation de Neo4j / ([GrapheneDB](https://www.graphenedb.com/)). (v3.4.7) (Août 2018. latest = 3.4.8, 3.5 en béta)
+* Note : Mise à jour avec Graphene en "self-service" ([versions](https://docs.graphenedb.com/docs/neo4j-version-upgrades)).
+* Apoc 3.4.0.3 ([versions](https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases)) (Septembre 2018)
+* Installation de Tika 1.19.1 [Versions](https://archive.apache.org/dist/tika/)(October 2018)
+* Extensions NER (version à retrouver)
 
 ### Installation du programme Go
 
-*   Récupération du projet et installation
-*   Build, test, etc.
-*   Configurations
-  *   Accès instance Neo4j
+* Récupération du projet et installation
+* Build, test, etc.
+* Configurations
+* Accès instance Neo4j
 
 ## Utilisation
 
-*   Fichier de données en entrée (avec un exemple)
-*   Exécution
-*   Résultats dans Neo4j
-  *   Exemple de requêtes simples
+* Fichier de données en entrée (avec un exemple)
+* Exécution
+* Résultats dans Neo4j
+* Exemple de requêtes simples
