@@ -1,4 +1,4 @@
-package pkg1
+package pkg2
 
 import "testing"
 
