@@ -1,5 +1,4 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/cad324b8d701457bbc213f897bd3dda6)](https://app.codacy.com/app/eric-gagnon/mgl7460-tp2-linktograph-go?utm_source=github.com&utm_medium=referral&utm_content=eric-gagnon/mgl7460-tp2-linktograph-go&utm_campaign=Badge_Grade_Settings)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4639c161e9c04ba1b6a43db34615b40e)](https://app.codacy.com/app/eric-gagnon/MGL7460-tp2-linktograph-go?utm_source=github.com&utm_medium=referral&utm_content=eric-gagnon/mgl7460-tp2-linktograph-go&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/eric-gagnon/mgl7460-tp2-linktograph-go.svg?branch=master)](https://travis-ci.org/eric-gagnon/mgl7460-tp2-linktograph-go)
 [![Coverage Status](https://coveralls.io/repos/github/eric-gagnon/mgl7460-tp2-linktograph-go/badge.svg?branch=master)](https://coveralls.io/github/eric-gagnon/mgl7460-tp2-linktograph-go?branch=master)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/eric-gagnon/mgl7460-tp2-linktograph-go)
