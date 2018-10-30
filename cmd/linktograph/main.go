@@ -4,23 +4,14 @@ package main
 import (
 	"fmt"
 	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/link"
-	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/pkg1"
 	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/scraper"
 	"path/filepath"
 )
 
-// main func is ...
 func main() {
-	fileOrganisationTesting()
+	fmt.Println("Starting the processing.")
 	doProcess()
-}
-
-func fileOrganisationTesting() {
-	fmt.Println("Starting the program.")
-	somethingDone := pkg1.Dosomething("echo")
-	somethingDone2 := pkg1.Dosomething2("echo")
-	fmt.Println(somethingDone)
-	fmt.Println(somethingDone2)
+	fmt.Println("Finished the processing.")
 }
 
 func doProcess() {
