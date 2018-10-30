@@ -35,7 +35,7 @@ func ScrapFilesToCache(sourceLinks []string, cachefolderpath string) []scrapedfi
 		go func(link string, cachefolderpath string, index int) {
 			defer wg.Done()
 			getFileFromLink(link, cachefolderpath)
-			messages <- fmt.Sprintf("getFileFromLink finished for %s, starting order: %d", link,  index)
+			messages <- fmt.Sprintf("getFileFromLink finished for %s, starting order: %d", link, index)
 		}(link, cachefolderpath, i)
 	}
 
