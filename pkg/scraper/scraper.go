@@ -32,11 +32,22 @@ func ScrapFilesToCache(sourceLinks []string, cachefolderpath string) []scrapedfi
 	wg.Add(len(sourceLinks))
 
 	for i, link := range sourceLinks {
-		go func(link string, cachefolderpath string, index int) {
+
+		filename := getSha1FileNameFromLink(link)
+		cacheFilePath := filepath.Join(cachefolderpath, filename)
+
+		go func(link string, cacheFilePath string, index int) {
 			defer wg.Done()
-			getFileFromLink(link, cachefolderpath)
+
+			// https://golangcode.com/check-if-a-file-exists/
+			if _, err := os.Stat(cacheFilePath); os.IsNotExist(err) {
+				downloadFileForLink(link, cacheFilePath)
+			} else {
+				fmt.Println("Skip downloadFileForLink, file already in cache.")
+			}
 			messages <- fmt.Sprintf("getFileFromLink finished for %s, starting order: %d", link, index)
-		}(link, cachefolderpath, i)
+
+		}(link, cacheFilePath, i)
 	}
 
 	go func() {
@@ -58,24 +69,24 @@ func getSha1FileNameFromLink(link string) string {
 	h.Write([]byte(link))
 	bs := h.Sum(nil)
 
-	// Convertir bytestream to string, autre technique?
+	// todo : Convertir bytestream to string, autre technique?
 	return fmt.Sprintf("%x", bs)
 }
 
-func getFileFromLink(link string, cachefolderpath string) {
+func getFileForLink(link string, cachefolderpath string) {
+}
+
+func downloadFileForLink(link string, cacheFilePath string) {
 
 	client := &http.Client{}
 
 	req, _ := http.NewRequest("GET", link, nil)
 
-	// Should user a user agent?
-	// Detecter mimetype?
-	// Creer un index?
 	resp, err := client.Do(req)
 
 	if err != nil {
-		// todo : Pourquoi? Format de requete invalide?
-		fmt.Printf("Failed to do request for link : %s\n", link)
+		// todo : add why.
+		fmt.Printf("Skip download to cache, failed request : %s\n", link)
 		return
 	}
 
@@ -83,16 +94,14 @@ func getFileFromLink(link string, cachefolderpath string) {
 
 	if resp.StatusCode == http.StatusOK {
 		// Note : will rewrite file if the file exist (refresh).
-		filename := getSha1FileNameFromLink(link)
-		// todo : extension?
-		createFilePath := filepath.Join(cachefolderpath, filename)
-		out, err := os.Create(createFilePath)
+
+		out, err := os.Create(cacheFilePath)
 		if err != nil {
 			panic(err)
 		}
 
 		defer out.Close()
 		io.Copy(out, resp.Body)
-		fmt.Printf("Downloaded link %s to : %s\n", link, createFilePath)
+		fmt.Printf("Downloaded link %s to : %s\n", link, cacheFilePath)
 	}
 }
