@@ -3,8 +3,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/links"
+	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/link"
 	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/pkg1"
+	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/scraper"
+	"path/filepath"
 )
 
 // main func is ...
@@ -23,6 +25,11 @@ func fileOrganisationTesting() {
 
 func doProcess() {
 	fmt.Println("doProcess")
-	sourceLinks := links.GetUniqueLinksFromFile("")
-	fmt.Println(len(sourceLinks))
+
+	absPath, _ := filepath.Abs(".")
+	// todo: Input folder is hardcoded, could be a command-line parameter or config.
+	readFilePath := filepath.Join(absPath, "input", "a-few-links.txt") //"one-link-html.txt"
+	sourceLinks := link.GetUniqueLinksFromFile(readFilePath)
+	
+	scraper.ScrapFilesToCache(sourceLinks, filepath.Join(absPath, "cache", "web"))
 }

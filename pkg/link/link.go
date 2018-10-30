@@ -1,33 +1,28 @@
 // Package implements utility routines to get a list of unique url links from a simple text file.
-package links
+package link
 
 import (
 	"bufio"
 	"fmt"
 	"net/url"
 	"os"
-	"path/filepath"
 )
 
 // GetUniqueLinksFromFile get a list of unique url links from a simple text file.
 func GetUniqueLinksFromFile(filepath string) []string {
 
-	x := getLinksFromFile("clean-links.txt")
+	x := getLinksFromFile(filepath)
 	x = removeDuplicates(x)
 
 	return x
 }
 
-func getLinksFromFile(filename string) []string {
+func getLinksFromFile(filepath string) []string {
 
 	links := []string{}
 
-	absPath, _ := filepath.Abs(".")
-	// todo: Input folder is hardcoded, could be a command-line parameter or config.
-	readFilePath := filepath.Join(absPath, "input", filename)
-
 	// See https://golang.org/pkg/bufio/#Scanner et https://gist.github.com/thedevsaddam/d7eff4608e2b41e2d8bc2b734183ede9
-	fileHandle, _ := os.Open(readFilePath)
+	fileHandle, _ := os.Open(filepath)
 	defer fileHandle.Close()
 
 	scanner := bufio.NewScanner(fileHandle)
@@ -53,7 +48,7 @@ func getLinksFromFile(filename string) []string {
 	return links
 }
 
-func removeDuplicates(s []string) []string {
+func removeDuplicates(sourceLinks []string) []string {
 	// Keeping order is not important.
 	// No filtering on parameters
 
@@ -61,7 +56,7 @@ func removeDuplicates(s []string) []string {
 
 	linkexist := map[string]bool{}
 
-	for _, link := range s {
+	for _, link := range sourceLinks {
 		if linkexist[link] {
 			fmt.Printf("Duplicated link found: %s\n", link)
 		} else {
