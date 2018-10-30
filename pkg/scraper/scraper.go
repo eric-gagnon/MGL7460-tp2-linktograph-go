@@ -41,11 +41,12 @@ func ScrapFilesToCache(sourceLinks []string, cachefolderpath string) []scrapedfi
 
 			// https://golangcode.com/check-if-a-file-exists/
 			if _, err := os.Stat(cacheFilePath); os.IsNotExist(err) {
+				// todo : Ajouter retour erreur.
 				downloadFileForLink(link, cacheFilePath)
+				messages <- fmt.Sprintf("getFileFromLink finished for %s, starting order: %d", link, index)
 			} else {
-				fmt.Println("Skip downloadFileForLink, file already in cache.")
+				messages <- fmt.Sprint("Skip downloadFileForLink, file already in cache.")
 			}
-			messages <- fmt.Sprintf("getFileFromLink finished for %s, starting order: %d", link, index)
 
 		}(link, cacheFilePath, i)
 	}
@@ -80,13 +81,14 @@ func downloadFileForLink(link string, cacheFilePath string) {
 
 	client := &http.Client{}
 
+	// todo : handle the error?
 	req, _ := http.NewRequest("GET", link, nil)
 
 	resp, err := client.Do(req)
 
 	if err != nil {
 		// todo : add why.
-		fmt.Printf("Skip download to cache, failed request : %s\n", link)
+		fmt.Printf("Skip download to cache, failed request. err: %v, link : %s,  \n", err, link)
 		return
 	}
 

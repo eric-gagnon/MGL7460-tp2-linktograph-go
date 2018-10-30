@@ -28,7 +28,7 @@ func doProcess() {
 
 	absPath, _ := filepath.Abs(".")
 	// todo: Input folder is hardcoded, could be a command-line parameter or config.
-	readFilePath := filepath.Join(absPath, "input", "a-few-links.txt") //"one-link-html.txt"
+	readFilePath := filepath.Join(absPath, "input", "clean-links.txt") //"one-link-html.txt" // a-few-links.txt
 	sourceLinks := link.GetUniqueLinksFromFile(readFilePath)
 
 	scraper.ScrapFilesToCache(sourceLinks, filepath.Join(absPath, "cache", "web"))
