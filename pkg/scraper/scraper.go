@@ -2,38 +2,25 @@
 package scraper
 
 import (
-	"crypto/sha1"
 	"fmt"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
 	"sync"
+	"github.com/eric-gagnon/mgl7460-tp2-linktograph-go/pkg/link"
 )
 
-type scrapedfile struct {
-	url        string
-	identifier string
-}
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
-func ScrapFilesToCache(sourceLinks []string, cachefolderpath string) []scrapedfile {
+func ScrapFilesToCache(sourceLinks []string, cachefolderpath string) {
 	// Concurrency: https://nathanleclaire.com/blog/2014/02/15/how-to-wait-for-all-goroutines-to-finish-executing-before-continuing/
 	messages := make(chan string)
 	var wg sync.WaitGroup
 
-	scrapedFiles := []scrapedfile{}
-
 	wg.Add(len(sourceLinks))
 
-	for i, link := range sourceLinks {
+	for i, l := range sourceLinks {
 
-		filename := getSha1FileNameFromLink(link)
+		filename := link.GetSha1FileNameForLink(l)
 		cacheFilePath := filepath.Join(cachefolderpath, filename)
 
 		go func(link string, cacheFilePath string, index int) {
@@ -48,7 +35,7 @@ func ScrapFilesToCache(sourceLinks []string, cachefolderpath string) []scrapedfi
 				messages <- fmt.Sprint("Skip downloadFileForLink, file already in cache.")
 			}
 
-		}(link, cacheFilePath, i)
+		}(l, cacheFilePath, i)
 	}
 
 	go func() {
@@ -58,23 +45,6 @@ func ScrapFilesToCache(sourceLinks []string, cachefolderpath string) []scrapedfi
 	}()
 
 	wg.Wait()
-
-	return scrapedFiles
-}
-
-func getSha1FileNameFromLink(link string) string {
-	// Duplicate should be removed already but we want a simple way to generated a file name
-	// that can be used as a access key later when accessing the cache.
-	// Solution from : https://gobyexample.com/sha1-hashes
-	h := sha1.New()
-	h.Write([]byte(link))
-	bs := h.Sum(nil)
-
-	// todo : Convertir bytestream to string, autre technique?
-	return fmt.Sprintf("%x", bs)
-}
-
-func getFileForLink(link string, cachefolderpath string) {
 }
 
 func downloadFileForLink(link string, cacheFilePath string) {

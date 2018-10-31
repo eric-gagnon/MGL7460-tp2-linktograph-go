@@ -3,6 +3,7 @@ package link
 
 import (
 	"bufio"
+	"crypto/sha1"
 	"fmt"
 	"net/url"
 	"os"
@@ -28,14 +29,14 @@ func getLinksFromFile(filepath string) []string {
 	scanner := bufio.NewScanner(fileHandle)
 	for scanner.Scan() {
 
-		link := scanner.Text()
+		l := scanner.Text()
 		// Minimal validation that the line is a valid url.
 		// todo: Broken protocol is not filtered. Add test.
-		_, err := url.ParseRequestURI(link)
+		_, err := url.ParseRequestURI(l)
 		if err != nil {
-			fmt.Printf("Link skipped, not parsed as a valid request URI: %s\n", link)
+			fmt.Printf("Link skipped, not parsed as a valid request URI: %s\n", l)
 		} else {
-			links = append(links, link)
+			links = append(links, l)
 		}
 	}
 
@@ -68,4 +69,16 @@ func removeDuplicates(sourceLinks []string) []string {
 	fmt.Printf("Number of links without duplicates : %v\n", len(filteredList))
 
 	return filteredList
+}
+
+func GetSha1FileNameForLink(link string) string {
+	// Duplicate should be removed already but we want a simple way to generated a file name
+	// that can be used as a access key later when accessing the cache.
+	// Solution from : https://gobyexample.com/sha1-hashes
+	h := sha1.New()
+	h.Write([]byte(link))
+	bs := h.Sum(nil)
+
+	// todo : Convertir bytestream to string, autre technique?
+	return fmt.Sprintf("%x", bs)
 }
