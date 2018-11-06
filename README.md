@@ -11,7 +11,7 @@ BADGES INVALIDES À CORRIGER :
 
 Application pour le TP2 : Typage et maintenabilité. Version avec le langage Go.
 
-Voir aussi le repository commun : https://github.com/eric-gagnon/mgl7460-tp2
+Voir le repository commun : https://github.com/eric-gagnon/mgl7460-tp2
 
 ## Documentation
 
