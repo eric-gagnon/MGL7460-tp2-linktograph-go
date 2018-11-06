@@ -8,13 +8,14 @@ BADGES INVALIDES À CORRIGER :
 [![Test Coverage](https://api.codeclimate.com/v1/badges/93056b3d54fae3588072/test_coverage)](https://codeclimate.com/github/eric-gagnon/mgl7460-tp2-linktograph-go/test_coverage)
 
 # MGL7460-tp2-inktograph-go
+
 Application pour le TP2 : Typage et maintenabilité. Version avec le langage Go.
 
 Voir aussi le repository commun : https://github.com/eric-gagnon/mgl7460-tp2
 
 ## Documentation
 
-[Voir aussi le Wiki du projet](https://github.com/eric-gagnon/mgl7460-tp2/wiki)
+[Wiki du projet](https://github.com/eric-gagnon/mgl7460-tp2/wiki)
 
 ## Installation
 
