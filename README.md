@@ -14,7 +14,7 @@ Voir aussi le repository commun : https://github.com/eric-gagnon/mgl7460-tp2
 
 ## Documentation
 
-Wiki dans le repository commun : https://github.com/eric-gagnon/mgl7460-tp2/wiki
+[Wiki du projet commun](https://github.com/eric-gagnon/mgl7460-tp2/wiki)
 
 ## Installation
 
